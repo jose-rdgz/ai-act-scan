@@ -1,0 +1,45 @@
+name: 'AI Act Scan'
+description: 'Inventory the AI components in your repository (SDKs, models, APIs) with EU AI Act pointers. Fail the build when new AI appears.'
+author: 'EuroComply'
+branding:
+  icon: 'search'
+  color: 'blue'
+inputs:
+  path:
+    description: 'Directory to scan'
+    default: '.'
+  baseline:
+    description: 'Path to an earlier --json output. Components not in it are reported as new.'
+    default: ''
+  fail-on:
+    description: 'Fail the job when: new (needs baseline), review-first, any. Empty = never fail.'
+    default: ''
+  csv:
+    description: 'Write the register to this CSV file (upload it as an artifact if you want to keep it).'
+    default: ''
+outputs:
+  total:
+    description: 'Number of AI components found'
+    value: ${{ steps.scan.outputs.total }}
+  review-first:
+    description: 'Number of components flagged for review first (biometrics, emotion recognition)'
+    value: ${{ steps.scan.outputs.review-first }}
+  new:
+    description: 'Number of components not present in the baseline (empty without a baseline)'
+    value: ${{ steps.scan.outputs.new }}
+runs:
+  using: 'composite'
+  steps:
+    - id: scan
+      shell: bash
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_BASELINE: ${{ inputs.baseline }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_CSV: ${{ inputs.csv }}
+      run: |
+        args=("$INPUT_PATH" --github-summary --no-color)
+        [ -n "$INPUT_BASELINE" ] && args+=(--baseline "$INPUT_BASELINE")
+        [ -n "$INPUT_FAIL_ON" ] && args+=(--fail-on "$INPUT_FAIL_ON")
+        [ -n "$INPUT_CSV" ] && args+=(--csv "$INPUT_CSV")
+        node "$GITHUB_ACTION_PATH/bin/ai-act-scan.mjs" "${args[@]}"

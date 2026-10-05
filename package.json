@@ -1,0 +1,17 @@
+{
+  "name": "ai-act-scan",
+  "version": "1.0.0",
+  "description": "Find the AI in a codebase and turn it into an EU AI Act inventory. Zero dependencies, runs locally, CLI and GitHub Action.",
+  "type": "module",
+  "bin": { "ai-act-scan": "bin/ai-act-scan.mjs" },
+  "exports": { ".": "./src/scan.mjs", "./report": "./src/report.mjs", "./signatures": "./src/signatures.mjs" },
+  "files": ["bin", "src", "action.yml", "README.md", "LICENSE"],
+  "scripts": { "test": "node --test" },
+  "engines": { "node": ">=18" },
+  "keywords": ["eu-ai-act", "ai-act", "ai-governance", "ai-inventory", "compliance", "sbom", "ai-bom", "github-action", "cli"],
+  "homepage": "https://eurogpsr.com/tools/ai-act-scan",
+  "repository": { "type": "git", "url": "git+https://github.com/jose-rdgz/ai-act-scan.git" },
+  "bugs": { "url": "https://github.com/jose-rdgz/ai-act-scan/issues" },
+  "author": "EuroComply (https://eurogpsr.com)",
+  "license": "MIT"
+}

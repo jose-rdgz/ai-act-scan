@@ -1,0 +1,6 @@
+# candidate ranking service
+scikit-learn==1.5.2
+xgboost>=2.1
+pandas
+deepface==0.0.93  # video interview analysis
+fastapi[standard]>=0.115

@@ -1,0 +1,1 @@
+{ "name": "support-bot", "private": true, "dependencies": { "@anthropic-ai/sdk": "^0.60.0", "ai": "^5.0.0", "@pinecone-database/pinecone": "^5.0.0", "express": "^5.0.0" } }
