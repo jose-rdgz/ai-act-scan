@@ -1,6 +1,6 @@
 {
   "name": "ai-act-scan",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Find the AI in a codebase and turn it into an EU AI Act inventory. Zero dependencies, runs locally, CLI and GitHub Action.",
   "type": "module",
   "bin": { "ai-act-scan": "bin/ai-act-scan.mjs" },

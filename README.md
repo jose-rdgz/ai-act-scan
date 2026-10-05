@@ -15,7 +15,7 @@ npx github:jose-rdgz/ai-act-scan
 ```
 
 ```text
-ai-act-scan 1.0.0  ·  5 files scanned in examples
+ai-act-scan 1.0.1  ·  5 files scanned in examples
 
 7 AI components found  (1 review first, 3 transparency, 2 classify, 1 info)
 

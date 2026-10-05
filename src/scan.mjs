@@ -2,7 +2,7 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import { basename, extname, join, relative, sep } from 'node:path';
 import { CATEGORIES, MODEL_FILE_EXTENSIONS, SIGNATURES } from './signatures.mjs';
 
-export const VERSION = '1.0.0';
+export const VERSION = '1.0.1';
 
 const SKIP_DIRS = new Set([
   'node_modules', '.git', '.hg', '.svn', 'dist', 'build', 'out', '.next', '.nuxt', '.turbo', '.cache', 'coverage',

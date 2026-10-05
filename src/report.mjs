@@ -20,7 +20,7 @@ function evidenceLine(system, max = 3) {
 export function toText(result, { color = false, fresh = null } = {}) {
   const c = (code, s) => (color ? `\x1b[${code}m${s}\x1b[0m` : s);
   const lines = [];
-  lines.push(c(1, `ai-act-scan ${result.version}`) + `  ·  ${result.filesScanned} files scanned in ${result.root}`);
+  lines.push(c(1, `ai-act-scan ${result.version}`) + `  ·  ${result.filesScanned} file${result.filesScanned === 1 ? '' : 's'} scanned in ${result.root}`);
   lines.push('');
   if (!result.systems.length && !result.modelFiles.length) {
     lines.push('No AI components detected in dependencies, imports, API hosts or env templates.');
